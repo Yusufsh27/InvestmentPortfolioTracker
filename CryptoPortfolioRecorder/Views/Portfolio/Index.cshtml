@@ -1,0 +1,93 @@
+﻿@model CryptoPortfolioRecorder.ViewModel.PortfolioViewModel
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <style>
+            table {
+                font-family: arial, sans-serif;
+                border-collapse: collapse;
+                width: 100%;
+            }
+
+            td, th {
+                border: 1px solid #dddddd;
+                text-align: left;
+                padding: 8px;
+            }
+
+            tr:nth-child(even) {
+                background-color: #dddddd;
+            }
+
+            .postivePercentage {
+                background-color: green;
+                font-weight: 900;
+            }
+
+            .negativePercentage {
+                background-color: red;
+                font-weight: 900;
+            }
+        </style>
+    </head>
+    <body>
+
+        <h1>Crypto Porfolio 1</h1>
+        <table>
+            <tr>
+                <th>Coin</th>
+                <th>Amount</th>
+                <th>Date Time Bought</th>
+                <th>Price Bought At</th>
+                <th>Amount Spent</th>
+                <th>Current Price</th>
+                <th>Current Total</th>
+                <th>Percentage Change</th>
+
+
+                @foreach (var cryptoAsset in Model.cryptos)
+                {
+                    <tr>
+                        <td>@cryptoAsset.Name</td>
+                        <td>@cryptoAsset.Amount</td>
+                        <td>@cryptoAsset.DateTimeBought</td>
+                        <td>$@cryptoAsset.PriceBought</td>
+                        <td>$@cryptoAsset.AmountSpent</td>
+                        <td>$@cryptoAsset.CurrentPrice</td>
+                        <td>$@cryptoAsset.CurrentTotal</td>
+                        @if (@cryptoAsset.PercentChange < 0)
+                        {
+                            <td class="negativePercentage">@cryptoAsset.PercentChange%</td>
+                        }
+                        else
+                        {
+                            <td class="postivePercentage">@cryptoAsset.PercentChange%</td>
+                        }
+                    </tr>
+                }
+                <tr>
+                    <td>All</td>
+                    <td>N/A</td>
+                    <td>N/A</td>
+                    <td>N/A</td>
+                    <td>$@Model.totalPriceInvested</td>
+                    <td>N/A</td>
+                    <td>$@Model.totalCurrentPrice</td>
+                    @if (@Model.totalPercentChange < 0)
+                    {
+                        <td class="negativePercentage">@Model.totalPercentChange%</td>
+                    }
+                    else
+                    {
+                        <td class="postivePercentage">@Model.totalPercentChange%</td>
+                    }
+                </tr>
+            </tr>
+        </table>
+        <div>
+            <a asp-controller="Home">Portfolios</a>
+            <a asp-action="Create">Add Crypto</a>
+            <a asp-action="Remove">Remove Crypto</a>
+        </div>
+    </body>
+</html>

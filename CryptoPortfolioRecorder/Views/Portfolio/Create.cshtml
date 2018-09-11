@@ -1,0 +1,26 @@
+﻿@model CryptoPortfolioRecorder.Models.Crypto
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Create</title>
+    </head>
+    <body>
+        <form method="post">
+
+            Crypto name:<br>
+            <input asp-for="Name" />
+            <br>
+            Amount:<br>
+            <input asp-for="Amount" />
+            <br>
+            Amount:<br>
+            <input asp-for="DateTimeBought" />
+            <br>
+            PriceBought:<br>
+            <input asp-for="PriceBought" />
+            <br>
+            <br><br>
+            <input type="submit" name="save" value="Submit" />
+        </form>
+    </body>
+</html>

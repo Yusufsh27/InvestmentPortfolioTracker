@@ -1,0 +1,31 @@
+{
+    _id  ObjectId(5b972b35a74e450706d7a819),
+    Portfolio1  {
+        Coins  [ 
+            {
+                Name  XLM,
+                Amount  269,
+                DateTimeBought  252018,
+                PriceBought  0.29
+            }, 
+            {
+                Name  NEO,
+                Amount  5.294,
+                DateTimeBought  252018,
+                PriceBought  67.71
+            }, 
+            {
+                Name  WTC,
+                Amount  86.915,
+                DateTimeBought  252018,
+                PriceBought  15
+            }, 
+            {
+                Name  ETH,
+                Amount  9.478,
+                DateTimeBought  952018,
+                PriceBought  257.9
+            }
+        ]
+    }
+}
